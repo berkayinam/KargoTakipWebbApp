@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kargo Takip Sistemi</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    .teslim-edildi { background-color: #c8e6c9; }
+    .beklemede { background-color: #ffcdd2; }
+  </style>
+</head>
+<body>
+  <h1>Kargo Takip Sistemi</h1>
+  <form id="kargoForm">
+    <label>Firma:
+      <select id="firma">
+        <option value="UPS">UPS</option>
+        <option value="Aras">Aras</option>
+        <option value="Yurtiçi">Yurtiçi</option>
+      </select>
+    </label>
+    <label>Takip No: <input type="text" id="takipNo" required /></label>
+    <label>Mağaza ID: <input type="text" id="magazaID" /></label>
+    <label>Talep ID: <input type="text" id="talepID" /></label>
+    <button type="submit">Ekle</button>
+  </form>
+
+  <table id="kargoTable">
+    <thead>
+      <tr>
+        <th>Firma</th>
+        <th>Takip No</th>
+        <th>Mağaza ID</th>
+        <th>Talep ID</th>
+        <th>Durum</th>
+        <th>Öngörülen Teslimat</th>
+        <th>Son Güncelleme</th>
+        <th>İşlem</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
