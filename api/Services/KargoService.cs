@@ -21,6 +21,16 @@ public class KargoService
         return _kargoListesi.Any(k => k.TakipNo == takipNo);
     }
 
+    public bool Delete(string takipNo)
+    {
+        var kargo = _kargoListesi.FirstOrDefault(k => k.TakipNo == takipNo);
+        if (kargo != null)
+        {
+            return _kargoListesi.Remove(kargo);
+        }
+        return false;
+    }
+
     public async Task<KargoDurumSonucu> KargoDurumuKontrolEt(string firma, string takipNo)
     {
         if (firma == "UPS")

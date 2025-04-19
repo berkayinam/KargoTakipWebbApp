@@ -23,8 +23,16 @@ async function fetchKargolar() {
 }
 
 async function deleteKargo(takipNo) {
-  await fetch(`${apiUrl}/${takipNo}`, { method: "DELETE" });
-  fetchKargolar();
+  try {
+    const response = await fetch(`${apiUrl}/${takipNo}`, { method: "DELETE" });
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText);
+    }
+    await fetchKargolar();
+  } catch (error) {
+    alert('Kargo silinirken bir hata oluştu: ' + error.message);
+  }
 }
 
 document.getElementById("kargoForm").addEventListener("submit", async (e) => {

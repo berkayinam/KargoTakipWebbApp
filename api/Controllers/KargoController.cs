@@ -40,4 +40,16 @@ public class KargoController : ControllerBase
         return Ok(kargolar);
     }
 
+    [HttpDelete("{takipNo}")]
+    public IActionResult Delete(string takipNo)
+    {
+        if (string.IsNullOrEmpty(takipNo))
+            return BadRequest("Takip numarası gereklidir.");
+
+        var result = _service.Delete(takipNo);
+        if (result)
+            return Ok();
+        
+        return NotFound("Kargo bulunamadı.");
+    }
 }
