@@ -79,6 +79,13 @@ cd frontend
 # Statik dosyaları bir web sunucusu ile servis edin
 ```
 
+## Sürüm Bilgileri
+
+| Versiyon | Açıklama                     | Değişiklikler Özeti                               |
+| -------- | --------------------------- | ------------------------------------------------ |
+| 0.1.0   | Kapsamlı README.md eklendi. | Kapsamlı README.md dosyası eklendi.              |
+
+
 ## Lisans
 
-Bu proje MIT lisansı altında lisanslanmıştır. 
+Bu proje MIT lisansı altında lisanslanmıştır.
