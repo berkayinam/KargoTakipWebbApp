@@ -7,6 +7,8 @@ services:
     ports:
       - "6789:80"
     container_name: api
+    volumes:
+      - kargo-data:/app/data
     networks:
       - kargo-network
 
@@ -24,3 +26,6 @@ services:
 networks:
   kargo-network:
     driver: bridge
+
+volumes:
+  kargo-data:

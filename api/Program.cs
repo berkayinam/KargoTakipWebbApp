@@ -1,11 +1,23 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using KargoTakip.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<KargoService>();
+
+// Add services to the container.
 builder.Services.AddControllers();
+
+// Register KargoService as a singleton
+builder.Services.AddSingleton<KargoService>();
+
+// Register KargoTimerService as a hosted service
+builder.Services.AddHostedService<KargoTimerService>();
+
 var app = builder.Build();
-app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
 app.MapControllers();
-app.Run("http://0.0.0.0:80");
+
+app.Run();
